@@ -4,6 +4,7 @@ const Inert = require('inert');
 const Path = require('path');
 const extConfig = require('./config/config.json');
 var port = process.env.PORT || 8080; // set our port
+const Gmail  = require('gmail');
 
 
 const Hapi = require('hapi');
@@ -38,14 +39,26 @@ server.route({
     path: '/api/oauth2callback',
     handler: function (req, reply) {
         console.log("/api/oauth2callback");
-        //const email = req.payload.username;
-        //const password = req.payload.password;
-        //const auth = firebase.auth();
-        reply('20');
+        var resp = {
+            url : '/api/oauth2callback',
+            status : 20
+        }
+        reply( resp );
     }
 });
 
-
+server.route({
+    method: 'GET',
+    path: '/api',
+    handler: function (req, reply) {
+        console.log("/api");
+        var resp = {
+            url : '/api',
+            status : 20
+        }
+        reply( resp );
+    }
+});
 
 server.register(
     {

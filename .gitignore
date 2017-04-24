@@ -1,2 +1,5 @@
 .history/
 node_modules
+GoogleCloudNotes.txt
+client_secret.json
+*.log
